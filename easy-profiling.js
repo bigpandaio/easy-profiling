@@ -20,7 +20,7 @@ function initExpress(params) {
 
   const app = express();
 
-  app.set('port', 1991);
+  app.set('port', params && params.port || 1991);
   app.enable('trust proxy');
 
   return app;
