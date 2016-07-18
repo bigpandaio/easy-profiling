@@ -1,6 +1,6 @@
 const fs = require('fs');
 const profiler = require('v8-profiler');
-let _datadir;
+var _datadir;
 
 module.exports.init = (params) => {
   params.app.post('/profile', startProfiling);
