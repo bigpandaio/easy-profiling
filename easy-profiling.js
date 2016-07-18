@@ -1,24 +1,27 @@
-var fs = require('fs');
-var profiler = require('v8-profiler');
-var _datadir = null;
+const express = require('express');
+const http = require('http');
 
-module.exports.init = function (datadir) {
-    _datadir = datadir;
-    setInterval(startProfiling, 30 * 1000);
+module.exports.init = (params) => {
+    const datadir = params && params.datadir ? params.datadir : '.';
+    const app = initExpress(params);
+
+		require('./routes/profile').init({ app, datadir });
+
+    if (!params || !params.app) {
+      const server = http.createServer(app);
+      server.listen(app.get('port'));
+    }
 };
 
-function startProfiling() {
-    var timestamp = Date.now();
-    var id = 'profile-' + timestamp;
+function initExpress(params) {
+  if (params && params.app) {
+    return params.app;
+  }
 
-    profiler.startProfiling(id);
+  const app = express();
 
-    setTimeout(function () {
-        stopProfiling(id)
-    }, 5000);
-}
+  app.set('port', params && params.port || 1991);
+  app.enable('trust proxy');
 
-function stopProfiling(id) {
-    var profile = profiler.stopProfiling(id);
-    fs.writeFile(_datadir + '/' + id + '.cpuprofile', JSON.stringify(profile));
+  return app;
 }
