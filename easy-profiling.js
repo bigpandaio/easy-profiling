@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const http = require('http');
 
 module.exports.init = (params) => {
@@ -8,8 +7,10 @@ module.exports.init = (params) => {
 
 		require('./routes/profile').init({ app, datadir });
 
-		const server = http.createServer(app);
-		server.listen(app.get('port'));
+    if (app.independant) {
+      const server = http.createServer(app);
+      server.listen(app.get('port'));
+    }
 };
 
 function initExpress(params) {
@@ -19,8 +20,8 @@ function initExpress(params) {
 
   const app = express();
 
+  app.independant = true;
   app.set('port', 1991);
-  app.use(bodyParser.json({ limit: '51mb' }));
   app.enable('trust proxy');
 
   return app;
