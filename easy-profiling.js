@@ -1,10 +1,9 @@
-require('babel/register');
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
 
 module.exports.init = (params) => {
-    const datadir = params.datadir ? params.datadir : '.';
+    const datadir = params && params.datadir ? params.datadir : '.';
     const app = initExpress(params);
 
 		require('./routes/profile').init({ app, datadir });
@@ -14,7 +13,7 @@ module.exports.init = (params) => {
 };
 
 function initExpress(params) {
-  if (params.app) {
+  if (params && params.app) {
     return params.app;
   }
 
