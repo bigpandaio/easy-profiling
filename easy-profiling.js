@@ -7,7 +7,7 @@ module.exports.init = (params) => {
 
 		require('./routes/profile').init({ app, datadir });
 
-    if (app.independant) {
+    if (!params || !params.app) {
       const server = http.createServer(app);
       server.listen(app.get('port'));
     }
@@ -20,7 +20,6 @@ function initExpress(params) {
 
   const app = express();
 
-  app.independant = true;
   app.set('port', 1991);
   app.enable('trust proxy');
 
