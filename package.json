@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "profiling nodejs quickly and easy to manage",
   "main": "easy-profiling.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bigpandaio/easy-profiling.git"
@@ -18,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/bigpandaio/easy-profiling/issues"
   },
-  "homepage": "https://github.com/bigpandaio/easy-profiling#readme"
+  "homepage": "https://github.com/bigpandaio/easy-profiling#readme",
+  "dependencies": {
+    "v8-profiler": "5.6.5"
+  }
 }
