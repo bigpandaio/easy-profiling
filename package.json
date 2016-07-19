@@ -1,9 +1,13 @@
 {
   "name": "easy-profiling",
-  "version": "3.7.0",
+  "version": "3.7.1",
   "description": "profiling nodejs quickly and easy to manage",
   "main": "easy-profiling.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint . --quiet",
+    "lint-loud": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bigpandaio/easy-profiling.git"
@@ -19,6 +23,11 @@
   },
   "homepage": "https://github.com/bigpandaio/easy-profiling#readme",
   "dependencies": {
+    "express": "4.14.0",
     "v8-profiler": "5.6.5"
+  },
+  "devDependencies": {
+    "eslint-config-bigpanda": "git+ssh://git@github.com:bigpandaio/eslint-config-bigpanda.git#v3.4.4",
+    "eslint": "2.8.0"
   }
 }
