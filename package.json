@@ -1,6 +1,6 @@
 {
   "name": "easy-profiling",
-  "version": "3.7.0",
+  "version": "3.7.1",
   "description": "profiling nodejs quickly and easy to manage",
   "main": "easy-profiling.js",
   "scripts": {
