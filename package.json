@@ -2,21 +2,26 @@
   "name": "easy-profiling",
   "version": "3.7.2",
   "description": "profiling nodejs quickly and easy to manage",
-  "main": "easy-profiling.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint . --quiet",
     "lint-loud": "eslint .",
-    "lint-fix": "eslint . --fix"
+    "lint-fix": "eslint . --fix",
+    "test": "mocha test/ --recursive",
+    "validate": "! find test -name \"*.js\" -print | xargs grep \".only(\""
+  },
+  "config": {
+    "precommit": {
+      "lint": false,
+      "validate": true,
+      "test": false
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bigpandaio/easy-profiling.git"
   },
-  "keywords": [
-    "easy",
-    "profiling"
-  ],
-  "author": "Nadav Mermer <nadav@bigpanda.io> (https://www.bigpanda.io)",
+  "author": "Nadav Mermer <nadav@bigpanda.io>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bigpandaio/easy-profiling/issues"
