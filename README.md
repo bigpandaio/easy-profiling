@@ -21,6 +21,7 @@ __params:__
 | datadir       | path for output profile files | current directory (./) |
 | port          | port on which the manager will listen | 1991 |
 | app           | express app for reuse | new express app |
+| logger        | logger instance  | None |
 
 ### Advanced Usage:
 ##### express reuse:
@@ -29,6 +30,9 @@ If you already have express configured in your project, pass it in `params`, tha
 var params = { app: app };
 require('easy-profiling').init(params);
 ```
+##### logging & events:
+If you want to follow on the package actions, pass a logger instance as a param or catch the events emitted from the package.
+
 
 ### Run Profiler:
 ##### Using Defaults:
