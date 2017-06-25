@@ -38,7 +38,7 @@ If you want to follow on the package actions, pass a logger instance as a param 
 ##### Using Defaults:
 Basic way to start profiling your app for 5s
 ```bash 
-curl -XPOST localhost:<PORT>/profiler
+curl -XPOST localhost:<PORT>/profile
 ```
 ##### Custom Timeout:
 To set custom timeout add the number of _ms_ to the route
@@ -46,6 +46,6 @@ To set custom timeout add the number of _ms_ to the route
 __For example:__
 10s timeout
 ```bash 
-curl -XPOST localhost:<PORT>/profiler/10000
+curl -XPOST localhost:<PORT>/profile/10000
 ```
 
