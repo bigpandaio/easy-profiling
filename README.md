@@ -40,6 +40,7 @@ Basic way to start profiling your app for 5s
 ```bash 
 curl -XPOST localhost:<PORT>/profile
 ```
+
 ##### Custom Timeout:
 To set custom timeout add the number of _ms_ to the route
 
@@ -47,5 +48,12 @@ __For example:__
 10s timeout
 ```bash 
 curl -XPOST localhost:<PORT>/profile/10000
+```
+
+##### Get Profile Status:
+To get a specific profile's status, you get the <ID> from the response body when starting a new profile.
+
+```bash 
+curl -XGET localhost:<PORT>/profile/status/<ID>
 ```
 
